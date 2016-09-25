@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" 
+	template="../template/_template.xhtml">
+
+	<ui:define name="content">
+		<div id="content">
+			<div class="first">
+				<h1>Tarefas</h1>
+			</div>
+			
+			<div class="main">
+				<h:form id="formTaskIndex">
+					<p:messages id="message" />
+					<p:commandLink value="Adicionar" ajax="false" action="#{taskController.newEntity}" />
+					<p:dataTable id="table" var="entity" value="#{taskController.allEntities}"
+						emptyMessage="Nenhum registro" paginator="true" 
+						paginatorAlwaysVisible="false" rows="10">
+						
+							<p:column style="width:600px;">
+								<f:facet name="header">
+									<h:outputText value="Nome" />
+								</f:facet>
+								<h:outputText value="#{entity.name}" />
+							</p:column>						
+
+							<p:column style="width:60px;" >
+								<p:commandLink value="Alterar" ajax="false" action="#{taskController.updateEntity}" >
+									<f:param name="entity" value="#{entity}" />
+								</p:commandLink>
+							</p:column>
+						
+							<p:column style="width:60px;" >
+								<p:commandLink value="Excluir" actionListener="#{taskController.captureTask}" onclick="deleteDialog.show()" update="panelDeleteMessage" >
+									<f:param name="entity" value="#{entity}" />
+								</p:commandLink>
+							</p:column>
+							
+					</p:dataTable>
+					
+					<p:dialog id="deleteDialogID" widgetVar="deleteDialog" 
+						header="Excluir Tarefa" 
+						showEffect="clip" hideEffect="clip" width="600" 
+						draggable="false" closable="false" resizable="false" >
+						<p:panel id="panelDeleteMessage">
+
+							<h:outputLabel value="Gostaria realmente de excluir o tarefa #{taskController.entity.name}?" />
+							<br/>
+							<p:commandButton value="Excluir" actionListener="#{taskController.delete}" oncomplete="deleteDialog.hide()" update="table, message" />
+							<p:commandButton value="Cancelar" onclick="deleteDialog.hide()" />
+						
+						</p:panel>
+					</p:dialog>
+				</h:form>
+			</div>
+				
+			<div class="last"></div>
+			
+		</div>
+		
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,41 @@
+@charset "utf-8";
+* {	margin: 0px; padding: 0px; }
+body, html {
+	background-color: #ededed;	height: 100%;
+	background: url(../img/bg_menu.jpg) left repeat-y;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; font-size: 0.9em; color: #545454;
+	line-height: 1.7em;
+}
+body, .topo, .container, .menu ul li { width: 100%; }
+ul, li { list-style-type: none }
+a, a:link, a:visited, a:active { text-decoration: none; color: #000 }
+a:hover { text-decoration: underline }
+.clear { clear: both; }
+.container { min-height:100% }
+.topo, .conteudo, .container { position: relative; }
+.rodape, .menu { position:absolute; }
+.topo {
+	background-color: #263956; height: 150px; display: table;
+	background: -moz-linear-gradient(top,  #1b2942 0%, #263955 50%, #1b2942 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1b2942), color-stop(50%,#263955), color-stop(100%,#1b2942)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1b2942 0%,#263955 50%,#1b2942 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1b2942 0%,#263955 50%,#1b2942 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1b2942 0%,#263955 50%,#1b2942 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #1b2942 0%,#263955 50%,#1b2942 100%); /* W3C */
+	border-bottom: 1px solid #101010;
+}
+.topo div { display: table-cell; vertical-align: middle; padding-left: 20px; }
+.menu {
+	top: 151px; left: 0px; bottom: 0px; width: 201px;
+	
+	color: #fff;
+}
+.conteudo, .rodape div { width: 800px; }
+.conteudo { left: 230px; padding: 20px 0 20px 0; }
+.rodape { bottom: 0; right: 0; left: 201px; width: auto; background-color: #e3e3e3;}
+.rodape div { text-align: center; font-size: 0.9em; }
+.menu ul li:first-child  { border-top: none }
+.menu ul li { cursor: default; height: 50px; line-height: 50px; text-indent: 20px;  border-top: 1px solid #101010; border-bottom: 1px solid #444444; }
+.menu ul li a { display: block; }
+.menu ul li, .menu ul li a { color: #fff; }
+.menu ul li a:hover { background-color: #464646; text-decoration: none;}

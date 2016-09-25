@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" 
+	template="../template/_template.xhtml">
+	
+	<ui:define name="content">
+		<div id="content">
+			<div class="first">
+				<h3>Alterar Processo</h3>
+			</div>
+							
+			<div class="main">
+				<h:form id="formProcessUpdate">
+					<p:messages />
+					<table id="tableProcessUpdate">
+					
+						<tr>
+							<td><h:outputLabel value="ID: " /></td>
+							<td><h:outputLabel value="#{processController.entity.id}" /></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="Nome: " /></td>
+							<td><p:inputText value="#{processController.entity.name}" required="true" requiredMessage="Nome é obrigatório" /></td>
+							
+						</tr>
+						<tr>
+							<td><h:outputLabel value="Descrição: " /></td>
+							<td><p:inputText value="#{processController.entity.description}" /></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="Caminho: " /></td>
+							<td>
+								<p:inputText value="#{processController.entity.path}" style="width:200px;" required="true" requiredMessage="Caminho é obrigatório"  />
+							</td>
+							<td><p>Caminho + Nome do arquivo</p></td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<p:fileUpload fileUploadListener="#{processController.handleFileUpload}"  
+					            mode="advanced"   
+					            update="message"  
+					            allowTypes="/(\.|\/)(sh|jar)$/"/>
+							</td>
+						</tr>						
+						<tr>
+							<td colspan="2">
+								<p:commandButton value="Atualizar" ajax="false" action="#{processController.saveOrUpdate}" update="messages" />
+								<p:commandButton value="Cancelar" ajax="false" immediate="true" action="#{processController.cancel}" />
+							</td>
+						</tr>
+					
+					</table>
+				</h:form>
+			</div>
+				
+			<div class="last"></div>
+			
+		</div>
+		
+	</ui:define>
+	
+</ui:composition>
