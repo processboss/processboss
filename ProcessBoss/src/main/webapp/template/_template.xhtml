@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view contentType="text/html">
+		<p:growl id="messages" showDetail="true" sticky="true" />
+		<h:head>			
+			<link rel="stylesheet" type="text/css" href="/processboss/css/estilo.css" />
+			<title>Process Boss</title>
+		</h:head>
+	
+		<h:body>					
+			
+			<div id="container">
+			    <div class="topo">
+			    	<div><img src="/processboss/img/titulo.png" width="380" height="31" alt="Gerenciador de Processos" /></div>
+			    </div>
+			
+				<div class="menu">
+						<ul>
+							<li><a href="/processboss/dashboard/index.jsf">Dashboard</a></li>
+						
+							<c:if test="#{loginBean.user.administrator}"> 	
+								<li><a href="/processboss/user/index.jsf">Usuários</a></li>
+							</c:if>
+						
+							<li><a href="/processboss/process/index.jsf">Processos</a></li>
+							<li><a href="/processboss/task/index.jsf">Tarefas</a></li>
+							<li><a href="/processboss/schedule/index.jsf">Agendamento</a></li>
+						</ul>
+				</div>	
+				
+				<div class="conteudo">
+					<ui:insert name="content" />  
+				</div>		
+				
+				<br class="clear" />
+				
+			</div>
+				
+		</h:body>
+	</f:view>
+</html>
