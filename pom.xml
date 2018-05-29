@@ -15,6 +15,12 @@
 		<jsf.version>2.0.9</jsf.version>
 	</properties>
 
+	<scm>
+		<connection>scm:git:git://github.com/processboss/processboss.git</connection>
+		<url>https://github.com/processboss/processboss</url>
+		<developerConnection>scm:git:git@github.com:processboss/processboss.git</developerConnection>
+	</scm>
+
 	<dependencies>
 		<dependency>
 			<groupId>commons-collections</groupId>
@@ -212,6 +218,14 @@
 				<configuration>
 					<warName>${project.alias}</warName>
 					<webappDirectory>${project.build.directory}/${project.alias}/${project.alias}.${project.packaging}</webappDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
 				</configuration>
 			</plugin>
 
