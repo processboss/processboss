@@ -18,8 +18,8 @@
 		<connection>scm:git:git://github.com/processboss/processboss.git</connection>
 		<url>https://github.com/processboss/processboss</url>
 		<developerConnection>scm:git:git@github.com:processboss/processboss.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 
 	<dependencies>
 		<dependency>
